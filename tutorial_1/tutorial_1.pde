@@ -21,12 +21,31 @@ void draw(){
     
   //clear();
   background(0);
-  fill(255);
-  ellipse(mouseX,mouseY,50,50);
+  //fill(255);
+  //ellipse(mouseX,mouseY,50,50);
   
   //draw person object
   for (Person p: people){
-   p.draw(); 
+    p.update(); //update location if selected
+    p.drawPerson(); 
+  }
+  
+}
+
+void mousePressed() {
+    
+  for (Person p: people){
+    if (p.checkSelection()) { //only selects when mouse clicked
+      break; 
+    }
+  }
+    
+}
+
+void mouseReleased(){
+ 
+  for (Person p: people){
+    p.clicked = false;
   }
   
 }
