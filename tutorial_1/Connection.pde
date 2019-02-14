@@ -12,7 +12,7 @@ class Connection{
     type = _type;
   }
   
-  void draw() {
+  void drawConnection() {
     float x1 = origin.screenLocation.x;
     float y1 = origin.screenLocation.y;
     float x2 = destination.screenLocation.x;
