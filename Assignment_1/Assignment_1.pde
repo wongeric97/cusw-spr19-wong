@@ -13,7 +13,7 @@ void setup(){
 void draw(){
   background(255); 
   
-  Shape temp = new Shape(s, mouseX, mouseY, r, g, b, zoom/25);
+  Shape temp = new Shape(s, mouseX, mouseY, r, g, b, zoom);
   temp.drawShape();
   
   int total_area = 0;
@@ -34,12 +34,12 @@ void draw(){
 
 void mouseClicked(){
   //When mouse is clicked, current shape will be drawn on the canvas
-  shapes.add(new Shape(s, mouseX, mouseY, r, g, b, zoom/25));  
+  shapes.add(new Shape(s, mouseX, mouseY, r, g, b, zoom));  
 }
 
 void mouseWheel(MouseEvent event){
   //Wheel scroll will change size of shape
-  zoom += event.getCount();
+  zoom += event.getCount()*5;
 }
 
 void keyPressed(){

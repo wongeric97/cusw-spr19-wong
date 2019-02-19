@@ -24,21 +24,21 @@ class Shape{
     noStroke();
     fill(r, g, b);
     if (type == 0){
-      circle(x, y, 25*zoom);
+      circle(x, y, zoom);
     } else if (type == 1) {
-      square(x-12.5*zoom, y-12.5*zoom, 25*zoom);
+      square(x-0.5*zoom, y-0.5*zoom, zoom);
     } else {
-      triangle(x-25*zoom/2, y-25*zoom/sqrt(24), x, y+25*zoom/sqrt(3), x+25*zoom/2, y-25*zoom/sqrt(24));
+      triangle(x-zoom/2, y-zoom/sqrt(24), x, y+zoom/sqrt(3), x+zoom/2, y-zoom/sqrt(24));
     }
   }
   
   float getArea(){
     if (type == 0){
-      area = sq(25*zoom/2)*PI;
+      area = sq(zoom/2)*PI;
     } else if (type == 1) {
-      area = sq(25*zoom);
+      area = sq(zoom);
     } else {
-      area = sqrt(3)/4*sq(25*zoom);
+      area = sqrt(3)/4*sq(zoom);
     }
     return area;
   }
