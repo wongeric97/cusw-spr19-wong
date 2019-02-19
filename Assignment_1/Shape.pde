@@ -7,7 +7,7 @@ class Shape{
   int g;
   int b;
   int zoom;
-  int area;
+  float area;
   
   Shape(int _type, int _x, int _y, int _r, int _g, int _b, int _zoom){
      type = _type;
@@ -34,11 +34,11 @@ class Shape{
   
   float getArea(){
     if (type == 0){
-      //area = sq(25*zoom/2)*PI;
+      area = sq(25*zoom/2)*PI;
     } else if (type == 1) {
-      //area = sq(25*zoom);
+      area = sq(25*zoom);
     } else {
-      //area = sqrt(3)/4*sq(25*zoom);
+      area = sqrt(3)/4*sq(25*zoom);
     }
     return area;
   }
