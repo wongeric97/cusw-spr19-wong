@@ -44,8 +44,24 @@ void mouseWheel(MouseEvent event){
 
 void keyPressed(){
   //When a key is pressed, the shape and fill will change randomly
-  s = int(random(3));
-  r = int(random(10,255));
-  g = int(random(10,255));
-  b = int(random(10,255));
+  if (key == 'c') {
+    s = 0;  
+  } else if (key == 's') {
+    s = 1;
+  } else if (key == 't') {
+    s = 2;
+  } else if (key == ENTER) {
+    reset();
+  } else {
+    r = int(random(10,255));
+    g = int(random(10,255));
+    b = int(random(10,255));  
+  }
+  
+}
+
+void reset() {
+ 
+  shapes = new ArrayList<Shape>();
+  background(255);
 }
