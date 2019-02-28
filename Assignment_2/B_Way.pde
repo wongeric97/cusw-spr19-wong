@@ -21,6 +21,7 @@ class Way{
         PVector screenStart = map.getScreenLocation(coordinates.get(i));
         PVector screenEnd = map.getScreenLocation(coordinates.get(i+1));
         line(screenStart.x, screenStart.y, screenEnd.x, screenEnd.y);
-  }
+    }
+    noStroke();
   }
 }
