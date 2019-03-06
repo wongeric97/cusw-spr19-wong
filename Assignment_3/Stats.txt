@@ -9,6 +9,10 @@ What metrics did you pick and why?
 	from data.hk.gov and shapefiles from geodata.mit.edu
 
 What statistical test did you use and why?
-	I used a linear regression 
+	I tried to find if there is a correlation between the variance seen in a district's spread of monthly income with the spread of
+	housing financing situations. I did so by calculating the variance in each district for the two sets of data and then the correlation
+	between the two resulting arrays. I did this to see if the types of housing financial situations matched the types of incomes that 
+	a district saw.
 
 What was it's result (again not graded for accuracy)?
+	The result was a very low correlation value of 0.035. 

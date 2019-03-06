@@ -1,6 +1,8 @@
 Table districtBlocks, districtData;
-float pub_min, privflat_min, priv_min, other_min, temp_min, pop_min;
+//float pub_min, privflat_min, priv_min, other_min, temp_min, pop_min;
+float pop_min, privflat_min;
 float pub_max, privflat_max, priv_max, other_max, temp_max, pop_max;
+//float abs_max;
 
 void loadData(){
     background = loadImage("data/graymap.png");
@@ -56,11 +58,11 @@ void parseData(){
 }
 
 void normalizeData(){
-    pub_min = 1000000;
+    //pub_min = 1000000;
     privflat_min = 1000000;
-    priv_min = 1000000;
-    other_min = 1000000;
-    temp_min = 1000000;
+    //priv_min = 1000000;
+    //other_min = 1000000;
+    //temp_min = 1000000;
     pop_min = 1000000;
     pub_max = 0;
     privflat_max = 0;
@@ -77,15 +79,15 @@ void normalizeData(){
        float tempval = districts.get(i).tempscore;
        float popval = districts.get(i).pop;
        
-       if (pubval < pub_min) pub_min = pubval;
+       //if (pubval < pub_min) pub_min = pubval;
        if (pubval > pub_max) pub_max = pubval;
        if (privflatval < privflat_min) privflat_min = privflatval;
        if (privflatval > privflat_max) privflat_max = privflatval;
-       if (privval < priv_min) priv_min = privval;
+       //if (privval < priv_min) priv_min = privval;
        if (privval > priv_max) priv_max = privval;
-       if (otherval < other_min) other_min = otherval;
+       //if (otherval < other_min) other_min = otherval;
        if (otherval > other_max) other_max = otherval;
-       if (tempval < temp_min) temp_min = tempval;
+       //if (tempval < temp_min) temp_min = tempval;
        if (tempval > temp_max) temp_max = tempval;
        if (popval < pop_min) pop_min = popval;
        if (popval > pop_max) pop_max = popval;
@@ -99,11 +101,11 @@ void normalizeData(){
        float tempval = districts.get(i).tempscore;
        float popval = districts.get(i).pop;
        
-       float newpub = map(pubval, pub_min, pub_max, 0, 100);
+       float newpub = map(pubval, 0, pub_max, 0, 100);
        float newprivflat = map(privflatval, privflat_min, privflat_max, 0, 100);
-       float newpriv = map(privval, priv_min, priv_max, 0, 100);
-       float newother = map(otherval, other_min, other_max, 0, 100);
-       float newtemp = map(tempval, temp_min, temp_max, 0, 100);
+       float newpriv = map(privval, 0, priv_max, 0, 100);
+       float newother = map(otherval, 0, other_max, 0, 100);
+       float newtemp = map(tempval, 0, temp_max, 0, 100);
        float newpop = map(popval, pop_min, pop_max, 0, 100);
        
        districts.get(i).pubscore = newpub;
