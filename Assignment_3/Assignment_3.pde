@@ -17,6 +17,13 @@ void setup(){
   loadData();
   parseData();
   normalizeData();
+  
+  for (Polygon d: districts){
+    print("Public");
+    print(d.pubscore);
+    print("Private");
+    print(d.privflatscore);
+  }
 }
 
 void draw(){

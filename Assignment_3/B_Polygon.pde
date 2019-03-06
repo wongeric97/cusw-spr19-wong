@@ -30,29 +30,29 @@ class Polygon{
   }
   
   void updateColor(){
-    if(pubscore < 50) pubcolor = lerpColor(worst, mid, (2*pubscore)/100);
+    if(pubscore < 50) pubcolor = lerpColor(best, mid, (2*pubscore)/100);
     if(pubscore == 50) pubcolor = mid;
-    if(pubscore > 50) pubcolor = lerpColor(mid, best, (2*(pubscore-50))/100);
+    if(pubscore > 50) pubcolor = lerpColor(mid, worst, (2*(pubscore-50))/100);
     
-    if(privflatscore < 50) privflatcolor = lerpColor(worst, mid, (2*privflatscore)/100);
+    if(privflatscore < 50) privflatcolor = lerpColor(best, mid, (2*privflatscore)/100);
     if(privflatscore == 50) privflatcolor = mid;
-    if(privflatscore > 50) privflatcolor = lerpColor(mid, best, (2*(privflatscore-50))/100);
+    if(privflatscore > 50) privflatcolor = lerpColor(mid, worst, (2*(privflatscore-50))/100);
     
-    if(privscore < 50) privcolor = lerpColor(worst, mid, (2*privscore)/100);
+    if(privscore < 50) privcolor = lerpColor(best, mid, (2*privscore)/100);
     if(privscore == 50) privcolor = mid;
-    if(privscore > 50) privcolor = lerpColor(mid, best, (2*(privscore-50))/100);
+    if(privscore > 50) privcolor = lerpColor(mid, worst, (2*(privscore-50))/100);
     
-    if(otherscore < 50) othercolor = lerpColor(worst, mid, (2*otherscore)/100);
+    if(otherscore < 50) othercolor = lerpColor(best, mid, (2*otherscore)/100);
     if(otherscore == 50) othercolor = mid;
-    if(otherscore > 50) othercolor = lerpColor(mid, best, (2*(otherscore-50))/100);
+    if(otherscore > 50) othercolor = lerpColor(mid, worst, (2*(otherscore-50))/100);
     
-    if(tempscore < 50) tempcolor = lerpColor(worst, mid, (2*tempscore)/100);
+    if(tempscore < 50) tempcolor = lerpColor(best, mid, (2*tempscore)/100);
     if(tempscore == 50) tempcolor = mid;
-    if(tempscore > 50) tempcolor = lerpColor(mid, best, (2*(tempscore-50))/100);
+    if(tempscore > 50) tempcolor = lerpColor(mid, worst, (2*(tempscore-50))/100);
     
-    if(pop < 50) popcolor = lerpColor(worst, mid, (2*pop)/100);
+    if(pop < 50) popcolor = lerpColor(best, mid, (2*pop)/100);
     if(pop == 50) popcolor = mid;
-    if(pop > 50) popcolor = lerpColor(mid, best, (2*(pop-50))/100);
+    if(pop > 50) popcolor = lerpColor(mid, worst, (2*(pop-50))/100);
   }
   
   void colorByScore(){
@@ -81,9 +81,7 @@ class Polygon{
     p.stroke(0);
     p.strokeWeight(.5);
     for(int i = 0; i<coordinates.size(); i++){
-      //println(coordinates.get(i));
         PVector screenLocation = map.getScreenLocation(coordinates.get(i));
-        println(screenLocation.x);
         p.vertex(screenLocation.x, screenLocation.y);
     }
     p.endShape();

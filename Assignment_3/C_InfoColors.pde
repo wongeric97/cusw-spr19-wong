@@ -32,35 +32,35 @@ void drawLegend(){
      text("Public Housing", x-30, y-5);
      textSize(10);
      text(Float.toString(0.0), x-30, y+h);
-     text(Float.toString(pub_max), x-30, y+15);
+     text(Float.toString(abs_max), x-30, y+15);
    } else if (info == "private flat"){
      textSize(16);
      fill(0);
      text("Private Flats", x-30, y-5);
      textSize(10);
-     text(Float.toString(privflat_min), x-30, y+h);
-     text(Float.toString(privflat_max), x-30, y+15);
+     text(Float.toString(0), x-30, y+h);
+     text(Float.toString(abs_max), x-30, y+15);
    } else if (info == "private"){
      textSize(16);
      fill(0);
      text("Private Housing", x-30, y-5);
      textSize(10);
      text(Float.toString(0.0), x-30, y+h);
-     text(Float.toString(priv_max), x-30, y+15);
+     text(Float.toString(abs_max), x-30, y+15);
    } else if (info == "other"){
      textSize(16);
      fill(0);
      text("Other Housing", x-30, y-5);
      textSize(10);
      text(Float.toString(0.0), x-30, y+h);
-     text(Float.toString(other_max), x-30, y+15);
+     text(Float.toString(abs_max), x-30, y+15);
    } else if (info == "temporary"){
      textSize(16);
      fill(0);
      text("Temporary", x-35, y-5);
      textSize(10);
      text(Float.toString(0.0), x-30, y+h);
-     text(Float.toString(temp_max), x-30, y+15);
+     text(Float.toString(abs_max), x-30, y+15);
    } else if (info == "population"){
      textSize(16);
      fill(0);
