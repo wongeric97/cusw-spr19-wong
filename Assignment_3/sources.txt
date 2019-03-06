@@ -1,0 +1,5 @@
+Sources:
+
+Census Data [https://data.gov.hk/en-data/dataset/hk-censtatd-16bc_en-2016-population-by-census-main-tables]
+
+Shapefiles [https://geodata.mit.edu/catalog/stanford-tc394sc6984]
