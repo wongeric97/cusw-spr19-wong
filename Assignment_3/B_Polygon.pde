@@ -10,7 +10,7 @@ class Polygon{
   String name;
   
   color fill;
-  color pubcolor, privflatcolor, privcolor, othercolor, tempcolor;
+  color popcolor, pubcolor, privflatcolor, privcolor, othercolor, tempcolor;
   
 
   //Empty constructor
@@ -49,6 +49,10 @@ class Polygon{
     if(tempscore < 50) tempcolor = lerpColor(worst, mid, (2*tempscore)/100);
     if(tempscore == 50) tempcolor = mid;
     if(tempscore > 50) tempcolor = lerpColor(mid, best, (2*(tempscore-50))/100);
+    
+    if(pop < 50) popcolor = lerpColor(worst, mid, (2*pop)/100);
+    if(pop == 50) popcolor = mid;
+    if(pop > 50) popcolor = lerpColor(mid, best, (2*(pop-50))/100);
   }
   
   void colorByScore(){
@@ -63,6 +67,8 @@ class Polygon{
       fill = color(othercolor);
     } else if (info == "temporary"){
       fill = color(tempcolor);
+    } else if (info == "population"){
+      fill = color(popcolor); 
     }
   }
   

@@ -1,8 +1,9 @@
 void drawLegend(){
-   int x = width-100;
-   int y = height-340;
-   float w = 60;
-   float h = 300;
+   float w = 40;
+   float h = 240;
+   int x = width-40-int(w);
+   int y = height-40-int(h);
+   
    
    for (int i=y; i<=y+h; i++){
       float inter = map(i, y, y+h, 0, 1);
@@ -16,7 +17,14 @@ void drawLegend(){
    
    textSize(24);
    fill(0);
-   text("Hong Kong Districts", width/3, 20);
+   text("Hong Kong Districts", 40, 40);
+   textSize(12);
+   text("1: Public Housing", 40, 55);
+   text("2: Private Flats", 40, 70);
+   text("3: Private Housing", 40, 85);
+   text("4: Other Housing", 40, 100);
+   text("5: Temporary Housing", 40, 115);
+   text("6: Population", 40, 130);
    
    if (info == "public"){
      textSize(16);
@@ -49,9 +57,16 @@ void drawLegend(){
    } else if (info == "temporary"){
      textSize(16);
      fill(0);
-     text("Temporary Housing", x-35, y-5);
+     text("Temporary", x-35, y-5);
      textSize(10);
      text(Float.toString(temp_min), x-30, y+h);
      text(Float.toString(temp_max), x-30, y+15);
+   } else if (info == "population"){
+     textSize(16);
+     fill(0);
+     text("Population", x-35, y-5);
+     textSize(10);
+     text(Float.toString(pop_min), x-30, y+h);
+     text(Float.toString(pop_max), x-30, y+15);
    }
 }

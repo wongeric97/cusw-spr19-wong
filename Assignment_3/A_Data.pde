@@ -1,8 +1,10 @@
 Table districtBlocks, districtData;
-float pub_min, privflat_min, priv_min, other_min, temp_min;
-float pub_max, privflat_max, priv_max, other_max, temp_max;
+float pub_min, privflat_min, priv_min, other_min, temp_min, pop_min;
+float pub_max, privflat_max, priv_max, other_max, temp_max, pop_max;
 
 void loadData(){
+    background = loadImage("data/graymap.png");
+    background.resize(width, height);
     districtBlocks = loadTable("data/temp-nodes.csv", "header");
     districtData = loadTable("data/hongkong.csv", "header");
     println("Data Loaded");
@@ -14,14 +16,9 @@ void parseData(){
     String previd = "0";
     coords = new ArrayList<PVector>();
     for(int i = 0; i<districtBlocks.getRowCount(); i++){
-    //for(int i = 0; i<5; i++){
        String shapeid = districtBlocks.getString(i, 0);
-       //debugging what shapeid is throwing it off
-       //print(previd+"\n");
-       //print(shapeid+"\n");
-       //print(previd == shapeid);
-       //print(float(previd) == float(shapeid));
        if(float(shapeid) != float(previd)){
+           //print(shapeid);
            if(coords.size() > 0){
                Polygon poly = new Polygon(coords);
                poly.id = shapeid;
@@ -31,7 +28,8 @@ void parseData(){
            coords = new ArrayList<PVector>();
            //reset variable
            previd = shapeid;
-           print("new shape");
+           //print("new shape");
+           print(districts.size());
        }
        if(float(shapeid) == float(previd)){
          float lat = float(districtBlocks.getString(i, 2));
@@ -63,11 +61,13 @@ void normalizeData(){
     priv_min = 1000000;
     other_min = 1000000;
     temp_min = 1000000;
+    pop_min = 1000000;
     pub_max = 0;
     privflat_max = 0;
     priv_max = 0;
     other_max = 0;
     temp_max = 0;
+    pop_max = 0;
     
     for (int i=0; i<districts.size(); i++){
        float pubval = districts.get(i).pubscore;
@@ -75,6 +75,7 @@ void normalizeData(){
        float privval = districts.get(i).privscore;
        float otherval = districts.get(i).otherscore;
        float tempval = districts.get(i).tempscore;
+       float popval = districts.get(i).pop;
        
        if (pubval < pub_min) pub_min = pubval;
        if (pubval > pub_max) pub_max = pubval;
@@ -86,6 +87,8 @@ void normalizeData(){
        if (otherval > other_max) other_max = otherval;
        if (tempval < temp_min) temp_min = tempval;
        if (tempval > temp_max) temp_max = tempval;
+       if (popval < pop_min) pop_min = popval;
+       if (popval > pop_max) pop_max = popval;
     }
     
     for (int i=0; i<districts.size(); i++){
@@ -94,18 +97,21 @@ void normalizeData(){
        float privval = districts.get(i).privscore;
        float otherval = districts.get(i).otherscore;
        float tempval = districts.get(i).tempscore;
+       float popval = districts.get(i).pop;
        
        float newpub = map(pubval, pub_min, pub_max, 0, 100);
        float newprivflat = map(privflatval, privflat_min, privflat_max, 0, 100);
        float newpriv = map(privval, priv_min, priv_max, 0, 100);
        float newother = map(otherval, other_min, other_max, 0, 100);
        float newtemp = map(tempval, temp_min, temp_max, 0, 100);
+       float newpop = map(popval, pop_min, pop_max, 0, 100);
        
        districts.get(i).pubscore = newpub;
        districts.get(i).privflatscore = newprivflat;
        districts.get(i).privscore = newpriv;
        districts.get(i).otherscore = newother;
        districts.get(i).tempscore = newtemp;
+       districts.get(i).pop = newpop;
     }
     
 }
