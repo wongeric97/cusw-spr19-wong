@@ -1,7 +1,13 @@
 What case study area did you pick and why?
+	I picked Hong Kong as my case study area as it's where my family is originally from.
 
 What metrics did you pick and why?
+	I decided to find information on Hong Kong about it's population, their average monthly income, and the economics of their
+	housing situation. I choose these because I know that Hong Kong has the most expensive real estate market in the world
+	but I wanted to see what that actually meant in terms of affordability for the people there, specifically how much of their
+	salary did they need to dedicate to housing based on the different districts of Hong Kong.
 
 What statistical test did you use and why?
+	I used a linear regression 
 
 What was it's result (again not graded for accuracy)?
