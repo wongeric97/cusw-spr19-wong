@@ -21,17 +21,19 @@ void parseData(){
        //print(shapeid+"\n");
        //print(previd == shapeid);
        //print(float(previd) == float(shapeid));
-       if(float(shapeid) != float(previd)){
+       if(shapeid.equals(previd) == false){
            if(coords.size() > 0){
+               //println(coords.get(0));
                Polygon poly = new Polygon(coords);
                poly.id = shapeid;
+               //println(poly.coordinates.get(0));
                districts.add(poly);
            }
            //clear coords
            coords = new ArrayList<PVector>();
            //reset variable
            previd = shapeid;
-           print("new shape");
+           //println("new shape");
        }
        if(float(shapeid) == float(previd)){
          float lat = float(districtBlocks.getString(i, 2));
@@ -53,7 +55,7 @@ void parseData(){
       //districts.get(i).colorByScore();
       districts.get(i).makeShape();
     }
- 
+   println(districts.size());
     println("Data Parsed");
 }
 

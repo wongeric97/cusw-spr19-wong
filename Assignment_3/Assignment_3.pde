@@ -6,7 +6,7 @@ void setup(){
   
   size(1000,800);
  
-  map = new MercatorMap(width, height, 113.8347, 114.4408, 22.5622, 22.1531, 0);
+  map = new MercatorMap(width, height, 22.5622, 22.1531, 113.8347, 114.4408,0);
   districts = new ArrayList<Polygon>();
   info = "public";
   worst = color(200, 0, 0);
