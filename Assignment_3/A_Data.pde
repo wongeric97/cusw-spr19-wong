@@ -20,10 +20,11 @@ void parseData(){
     for(int i = 0; i<districtBlocks.getRowCount(); i++){
        String shapeid = districtBlocks.getString(i, 0);
        if(float(shapeid) != float(previd)){
-           //print(shapeid);
            if(coords.size() > 0){
+               //println(coords.get(0));
                Polygon poly = new Polygon(coords);
                poly.id = shapeid;
+               //println(poly.coordinates.get(0));
                districts.add(poly);
            }
            //clear coords
@@ -31,7 +32,6 @@ void parseData(){
            //reset variable
            previd = shapeid;
            //print("new shape");
-           print(districts.size());
        }
        if(float(shapeid) == float(previd)){
          float lat = float(districtBlocks.getString(i, 2));
@@ -53,7 +53,7 @@ void parseData(){
       //districts.get(i).colorByScore();
       districts.get(i).makeShape();
     }
- 
+   println(districts.size());
     println("Data Parsed");
 }
 

@@ -81,7 +81,9 @@ class Polygon{
     p.stroke(0);
     p.strokeWeight(.5);
     for(int i = 0; i<coordinates.size(); i++){
+      //println(coordinates.get(i));
         PVector screenLocation = map.getScreenLocation(coordinates.get(i));
+        println(screenLocation.x);
         p.vertex(screenLocation.x, screenLocation.y);
     }
     p.endShape();
