@@ -1,15 +1,17 @@
 MercatorMap map;
 String info;
+color worst, mid, best;
 
 void setup(){
   
-  size(600,800);
-  
-  //not sure if this is the right mercatormap. got the shapefile from https://geodata.mit.edu/catalog/stanford-tc394sc6984 and i took the lat and long bounding box
-  //from what the metadata said
+  size(1000,800);
+ 
   map = new MercatorMap(width, height, 113.8347, 114.4408, 22.5622, 22.1531, 0);
   districts = new ArrayList<Polygon>();
   info = "public";
+  worst = color(200, 0, 0);
+  mid = color(255, 255, 0);
+  best = color(0, 200, 0);
   
   loadData();
   parseData();
@@ -22,6 +24,8 @@ void draw(){
   for (Polygon d: districts){
      d.draw(); 
   }
+  
+  drawLegend();
   
 }
 
